@@ -8,7 +8,6 @@ void print_hash(int num);
 int main(void)
 {
     int height = get_positive_int("Positive integer:");
-    printf("%i\n", height);
     
     int spaces = height - 1;
     int hashes = 1;
@@ -41,7 +40,7 @@ int get_positive_int(string prompt)
 // Print hashes
 void print_hash(int num)
 {
-    for(int i = 0; i < num; i++)
+    for (int i = 0; i < num; i++)
     {
         printf("#");
     }
@@ -50,7 +49,7 @@ void print_hash(int num)
 // Print spaces
 void print_space(int num)
 {
-    for(int i = 0; i < num; i++)
+    for (int i = 0; i < num; i++)
     {
         printf(" ");
     }
