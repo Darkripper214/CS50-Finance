@@ -17,7 +17,7 @@ int main(void)
     {
         print_space(spaces);
         print_hash(hashes);
-        printf(" ");
+        printf("  ");
         print_hash(hashes);
         printf("\n");
         spaces--;
