@@ -2,9 +2,9 @@
 #include <cs50.h>
 #include <math.h>
 
-int Obtain_Change (string prompt);
+int Obtain_Change(string prompt);
 
-int main (void)
+int main(void)
 {
     int x = Obtain_Change("Cents");
     int Num_of_coins = 0;
@@ -26,12 +26,12 @@ int main (void)
 }
 
 // Get positive integer
-int Obtain_Change (string prompt)
+int Obtain_Change(string prompt)
 {
-   float change;
+    float change;
     do
     {
-       change = get_float("Change owed: ");
+        change = get_float("Change owed: ");
     }
     while (change < 0);
     int cents = round(change * 100);
