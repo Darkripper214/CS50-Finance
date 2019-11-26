@@ -49,6 +49,6 @@ int main(int argc, string argv[])
         
     }
     string Cipertext = s ;
-    printf("ciphertext %s\n", Cipertext);
+    printf("ciphertext: %s\n", Cipertext);
     
 }
