@@ -19,7 +19,7 @@ int main(int argc, string argv[])
     len = strlen(str);
     
     // Loop through str
-    for (int i=0; i<len; i++)
+    for (int i = 0; i < len; i++)
     {
         // If character is alphabet, print wrong message, and return
         // It has to be number
@@ -50,4 +50,5 @@ int main(int argc, string argv[])
     }
     string Cipertext = s ;
     printf("cipertext: %s\n", Cipertext);
+    return 0
 }
