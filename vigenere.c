@@ -34,15 +34,15 @@ int main(int argc, string argv[])
     
     
     string Plaintext = get_string("plaintext: ");
- //   int k = atoi(argv[1]);
+// nt k = atoi(argv[1]);
     string s = Plaintext ;
     
     int y = 0;
     for (int i = 0; strlen(s) > i ; i++)
     {
-        if(y>(len-1))
+        if (y > (len - 1))
         {
-          y=0;  
+            y = 0;  
         }
         // Checking if it is lower case a to z
         if (s[i] >= 'a' && s[i] <= 'z')
@@ -68,15 +68,15 @@ int shift(char c)
 {
     //printf("key\n");
     //printf("%c\n", c);
-        if (c >= 'a' && c <= 'z')
-        {
-            c = ((c - 'a') % 26);
-        }
+    if (c >= 'a' && c <= 'z')
+    {
+        c = ((c - 'a') % 26);
+    }
         
-        else if (c >= 'A' && c <= 'Z')
-        {
-            c = ((c - 'A') % 26);
-        }
+    else if (c >= 'A' && c <= 'Z')
+    {
+        c = ((c - 'A') % 26);
+    }
     //printf("%i\n", c);
     return c;
 }
