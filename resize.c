@@ -97,6 +97,7 @@ int main(int argc, char *argv[])
             // create a new scanline in a temporary array
             for (int k = 0; k < n; k++)
             {
+                //To move to correct array location by multiplying by a factor
                 scanline[(j * n) + k] = triple;
             }
         }
