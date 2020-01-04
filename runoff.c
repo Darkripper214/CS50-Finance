@@ -164,7 +164,7 @@ bool print_winner(void)
     {
         if ((candidates[i].votes/voter_count) > 0.5)
         {
-            printf("%s\n",candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
             break;
         }
