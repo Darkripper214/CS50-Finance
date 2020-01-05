@@ -21,7 +21,7 @@ bool loaded = false;
  * Hash function via reddit user delipity:
  * https://www.reddit.com/r/cs50/comments/1x6vc8/pset6_trie_vs_hashtable/cf9nlkn
  */
-int hash_it(char* needs_hashing)
+int hash_it(char* needs_hashing)no
 {
     unsigned int hash = 0;
     for (int i = 0, n = strlen(needs_hashing); i < n; i++)
