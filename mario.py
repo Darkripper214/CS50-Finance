@@ -1,3 +1,5 @@
+from cs50 import get_int
+
 def print_hash(x):
     for i in range(1, x+1):
         print("#", end="")
@@ -10,10 +12,9 @@ def print_space(y):
 
 def get_positive_int():
     i = 0
-    while i < 1 or i > 8:
-        i = int(input("Height: "))
-    else:
-        return i
+    while True:
+        i = get_int("Height: ")
+        return (i)
 
 
 height = get_positive_int()
