@@ -15,7 +15,7 @@ def get_positive_int():
     i = 0
     while True:
         i = get_int("Height: ")
-        if i >= 1 and i < 8:
+        if i >= 1 and i <= 8:
             return i
 
 
