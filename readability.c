@@ -38,7 +38,7 @@ int main (void)
     L = 100 * letter_count/word_count;
     S = 100 * sentence_count/word_count;
 
-    index = floor(0.0588 * L - 0.296 * S - 15.8);
+    index = 0.0588 * L - 0.296 * S - 15.8;
 
     if (index < 1)
     {
