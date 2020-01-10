@@ -35,8 +35,8 @@ int main (void)
     float L = 0;
     float S = 0;
 
-    L = 100 * letter_count/word_count;
-    S = 100 * sentence_count/word_count;
+    L = 100 * (float)letter_count/(float)word_count;
+    S = 100 * (float)sentence_count/(float)word_count;
 
     index = 0.0588 * L - 0.296 * S - 15.8;
 
