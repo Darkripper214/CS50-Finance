@@ -48,7 +48,7 @@ int main (void)
 
     if (index >= 1 && index < 16)
     {
-        printf("Grade %.00f\n", index);
+        printf("Grade %.0f\n", index);
         return 0;
     }
 
@@ -58,8 +58,6 @@ int main (void)
         return 0;
     }
 
-    printf("%i letter(s)\n", letter_count);
-    printf("%i word(s)\n", word_count);
-    printf("%i sentence(s)\n", sentence_count);
+
 
 }
