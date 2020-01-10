@@ -32,8 +32,8 @@ int main (void)
         }
     }
 
-    int L = 0;
-    int S = 0;
+    float L = 0;
+    float S = 0;
 
     L = 100 * letter_count/word_count;
     S = 100 * sentence_count/word_count;
