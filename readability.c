@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 int main (void)
 {
@@ -37,7 +38,7 @@ int main (void)
     L = 100 * letter_count/word_count;
     S = 100 * sentence_count/word_count;
 
-    index = 0.0588 * L - 0.296 * S - 15.8;
+    index = floor(0.0588 * L - 0.296 * S - 15.8);
 
     if (index < 1)
     {
@@ -60,4 +61,5 @@ int main (void)
     printf("%i letter(s)\n", letter_count);
     printf("%i word(s)\n", word_count);
     printf("%i sentence(s)\n", sentence_count);
+
 }
