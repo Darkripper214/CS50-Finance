@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <math.h>
 
-int main (void)
+int main(void)
 {
     string text = get_string("Text: ");
     int letter_count = 0;
@@ -14,29 +14,29 @@ int main (void)
 
 
 
-    for (int i = 0; i<strlen(text); i++)
+    for (int i = 0; i < strlen(text); i++)
     {
-        if(tolower(text[i]) >= 97 && tolower(text[i]) <= 122 )
+        if (tolower(text[i]) >= 97 && tolower(text[i]) <= 122)
         {
             letter_count++;
         }
 
-        if(text[i] == 32)
+        if (text[i] == 32)
         {
             word_count++;
         }
 
-        if(text[i] == 33 || text[i] == 63  || text[i] == 46 )
+        if (text[i] == 33 || text[i] == 63  || text[i] == 46)
         {
-           sentence_count++;
+            sentence_count++;
         }
     }
 
     float L = 0;
     float S = 0;
 
-    L = 100 * (float)letter_count/(float)word_count;
-    S = 100 * (float)sentence_count/(float)word_count;
+    L = 100 * (float)letter_count / (float)word_count;
+    S = 100 * (float)sentence_count / (float)word_count;
 
     index = 0.0588 * L - 0.296 * S - 15.8;
 
