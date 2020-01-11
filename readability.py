@@ -26,7 +26,7 @@ if index < 1:
     print("Before Grade 1")
 
 if (index >= 1 and index < 16):
-    print(f"Grade {int(index)}")
+    print(f"Grade {int(round(index))}")
 
 if index > 16:
     print("Grade 16+")
