@@ -1,8 +1,8 @@
 text = input("Text: ")
-letter_count = 0;
-word_count = 1;
-sentence_count = 0;
-index = 0.0;
+letter_count = 0
+word_count = 1
+sentence_count = 0
+index = 0.0
 
 for elem in text:
     if ord(elem.lower()) >= 97 and ord(elem.lower()) <= 122:
