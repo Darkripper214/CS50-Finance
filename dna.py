@@ -10,39 +10,48 @@ if len(sys.argv) > 3:
     exit()
 
 str_list = []
-DB= open(dbPath,'r')
+DB = open(dbPath, 'r')
 DBreader = csv.DictReader(DB)
 for row in DBreader:
-#    print(DBreader.fieldnames)
-# Store the str for checking in SEQ
+    #    print(DBreader.fieldnames)
+    # Store the str for checking in SEQ
     str_list = DBreader.fieldnames
-#    print(row)
-#    dict_list.update(row)
-
-#for i in range(1,len(str_list)):
-#    print(str_list[i])
 
 str_list.pop(0)
 
-#for i in range(0,len(str_list)):
-#    print(str_list[i])
-
 seq_dict ={}
-seq_dict = dict.fromkeys(str_list,1)
+seq_dict = dict.fromkeys(str_list,0)
 #print(seq_dict)
 
-cur_count = 1
-SQ = open(seqPath,"r")
+def equal_count():
+    return cur_count
+
+
+
+SQ = open(seqPath, "r")
 for line in SQ:
+    #Looping through each STR type loaded
     for y in range(len(str_list)):
-        for i in range(len(line)):
-            if line[i:i+len(str_list[y])] == str_list[y] and line[i:i+len(str_list[y])] == line[i+len(str_list[y]):i+2*len(str_list[y])]:
-                seq_dict[str_list[y]] += 1
+        cur_count = 0
+        i = 0
+        x = len(line)
+        while i <= x:
+            #Check if DNA STR match, increase the string by i + len(STR) if match
+            if line[i:i+len(str_list[y])] == str_list[y]:
+                cur_count += 1
+                i += len(str_list[y]) - 1
+            else:
+                if cur_count > seq_dict[str_list[y]]:
+                    seq_dict[str_list[y]] = cur_count
+
+                cur_count = 0
+            #Increase i by 1 if doesn't match
+            i += 1
 
 
-print(seq_dict)
+#print(seq_dict)
 match = 0
-DB= open(dbPath,'r')
+DB = open(dbPath, 'r')
 DBreader = csv.DictReader(DB)
 for row in DBreader:
     for y in range(len(str_list)):
@@ -55,5 +64,3 @@ for row in DBreader:
 
 if match <= 0:
     print("No Match")
-
-
