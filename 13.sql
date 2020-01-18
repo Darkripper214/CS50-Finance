@@ -1,1 +1,1 @@
-SELECT name FROM people as P JOIN stars AS S ON S.person_id = P.id JOIN movies AS M ON M.id = S.movie_id WHERE title in (SELECT title FROM people as P JOIN stars AS S ON S.person_id = P.id JOIN movies AS M ON M.id = S.movie_id WHERE name = "Kevin Bacon" AND birth = 1958)
+SELECT DISTINCT name FROM people as P JOIN stars AS S ON S.person_id = P.id JOIN movies AS M ON M.id = S.movie_id WHERE title in (SELECT title FROM people as P JOIN stars AS S ON S.person_id = P.id JOIN movies AS M ON M.id = S.movie_id WHERE name = "Kevin Bacon" AND birth = 1958) AND name != "Kevin Bacon"
