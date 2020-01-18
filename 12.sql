@@ -1,0 +1,1 @@
+SELECT title FROM people as P JOIN stars AS S ON S.person_id = P.id  JOIN movies AS M ON M.id = S.movie_id  WHERE name = "Helena Bonham Carter" OR name = "Johnny Depp" GROUP BY title HAVING COUNT(title) > 1

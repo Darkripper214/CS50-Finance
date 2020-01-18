@@ -1,0 +1,1 @@
+SELECT DISTINCT name FROM people AS P JOIN  directors AS D ON P.id = person_id JOIN  movies AS M ON M.id = D.movie_id JOIN  ratings AS R ON R.movie_id = D.movie_id WHERE rating >= (9.0)
