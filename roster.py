@@ -4,10 +4,10 @@ from cs50 import SQL
 
 db = SQL("sqlite:///students.db")
 
-#db.execute("")
+# db.execute("")
 house_Name = sys.argv[1]
 
-if len(sys.argv) > 3 or len(sys.argv) < 2 :
+if len(sys.argv) > 3 or len(sys.argv) < 2:
     print("error")
     exit()
 
@@ -18,4 +18,4 @@ for row in result:
     if row["middle"] == None:
         print(row["first"] + " " + row["last"] + ", " + "born " + str(row["birth"]))
     else:
-        print(row["first"] +" " + row["middle"] + " " + row["last"] + ", " + "born " + str(row["birth"]))
+        print(row["first"] + " " + row["middle"] + " " + row["last"] + ", " + "born " + str(row["birth"]))
