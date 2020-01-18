@@ -15,7 +15,7 @@ result = db.execute("SELECT first, middle, last, birth FROM students WHERE house
 
 
 for row in result:
-    if row["middle"] == "":
+    if row["middle"] == None:
         print(row["first"] + " " + row["last"] + ", " + "born " + str(row["birth"]))
     else:
         print(row["first"] +" " + row["middle"] + " " + row["last"] + ", " + "born " + str(row["birth"]))

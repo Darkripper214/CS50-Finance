@@ -30,7 +30,7 @@ for name in name_list:
     if len(name) == 2:
         first_name = name[0]
         last_name = name [1]
-        middle_name = ""
+        middle_name = None
 
     db.execute("INSERT INTO students (first, middle, last) VALUES (?,?,?)" ,first_name, middle_name, last_name)
 
