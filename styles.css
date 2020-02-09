@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    background-color: orange;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    font-family: helvetica;
+}
+p {
+    font-size: 22px;
+}
