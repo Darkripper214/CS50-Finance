@@ -1,14 +1,3 @@
-/**
-* recover.c
-*
-* Computer Science 50
-* Problem Set 4
-*
-* Recovers JPEGs from a forensic image.
-* ./recover card.raw
-*/
-
-// libraries
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,16 +11,12 @@ typedef uint8_t BYTE;
 bool find_JPEG(BYTE[]);
 FILE* newfile(FILE*, char[], int, BYTE[]);
 
-/**
- * main file
- */
-
- int main(int argc, char* argv[])
+int main(int argc, char* argv[])
  {
     // check correct usage of program
     if(argc != 2)
     {
-    fprintf(stderr, "Error: must be in format ./recover file.raw");
+    fprintf(stderr, "Error!: must be in format ./recover xxx.raw");
     return 1;
 }
 
@@ -47,23 +32,18 @@ if (infile == NULL)
     return 2;
 }
 
-/**
- * run program with infile to restore JPGs
- */
-
-// declare variables
 BYTE buffer[BUFSIZE];
 int JPEG_counter = 0;
 char filename [8];
 FILE* img = NULL;
 
-// enter while loop to run
+
 while(!feof(infile) && fread(&buffer, BUFSIZE, 1, infile) == true)
 {
-    //  If start of new image identified
+    //  start if image is there
     if(find_JPEG(buffer) == true)
         {
-            // special case if first image
+            // special case for first image
             if(JPEG_counter == 0)
             {
                 // start new file
@@ -84,24 +64,22 @@ while(!feof(infile) && fread(&buffer, BUFSIZE, 1, infile) == true)
                 fwrite(buffer, 1, BUFSIZE, img);
                 JPEG_counter++;
             }
-
-
         }
-    // if no new JPEG found
+
+    // if there are no new jpeg
     if(find_JPEG(buffer) == false)
     {
-        // continue to next buffer if no open file
+        // continue to next buffer
         if(JPEG_counter == 0)
         {
             continue;
         }
         else
-        // carry on writing to file otherwise
+        // else write to file
         {
             fwrite(buffer, 1, BUFSIZE, img);
         }
     }
-
 }
 
 if(feof(infile))
@@ -113,13 +91,9 @@ return 0;
 }
 
 
-/**
- * declare functions for program to use
- */
-
 bool find_JPEG(BYTE buffer[])
 {
-// determine if new JPEG present?
+// check if JPEG
 if  (buffer[0] == 0xff &&
     buffer[1] == 0xd8 &&
     buffer[2]== 0xff &&
@@ -134,9 +108,6 @@ if  (buffer[0] == 0xff &&
     }
 }
 
-/**
- * create new file
- */
 
 FILE* newfile(FILE* img, char filename[], int JPEG_counter, BYTE buffer[])
 {
