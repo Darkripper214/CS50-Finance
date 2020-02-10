@@ -79,30 +79,31 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-int blurCheck(int i, int j, int height, int width, int RGB, RGBTRIPLE image[height][width])
+int blurCheck(int i, int j, int height, int width, RGBTRIPLE image[height][width], int RGB)
 {
     float counter = 0;
     int sum = 0;
-    for (int x = i - 1; x < (i + 2); x++)
+    for (int k = i - 1; k < (i + 2); k++)
     {
         for (int l = j - 1; l < (j + 2); l++)
         {
-            if (x < 0 || l < 0 || x >= height || l >= width)
+            if (k < 0 || l < 0 || k >= height || l >= width)
             {
+
             }
             else
             {
                 if (RGB == 0)
                 {
-                    sum += image[x][l].rgbtRed;
+                    sum += image[k][l].rgbtRed;
                 }
                 else if (RGB == 1)
                 {
-                    sum += image[x][l].rgbtBlue;
+                    sum += image[k][l].rgbtBlue;
                 }
                 else
                 {
-                    sum += image[x][l].rgbtGreen;
+                    sum += image[k][l].rgbtGreen;
                 }
                 counter++;
             }
