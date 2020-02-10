@@ -81,8 +81,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
 int blurCheck(int i, int j, int height, int width, RGBTRIPLE image[height][width], int RGB)
 {
-    float counter = 0;
     int sum = 0;
+    float counter = 0;
     for (int k = i - 1; k < (i + 2); k++)
     {
         for (int l = j - 1; l < (j + 2); l++)
