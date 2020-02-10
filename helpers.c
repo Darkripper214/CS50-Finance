@@ -79,31 +79,30 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-int equationforblur(int i, int j, int height, int width, RGBTRIPLE image[height][width], int RGB)
+int blurCheck(int i, int j, int height, int width, int RGB, RGBTRIPLE image[height][width])
 {
     float counter = 0;
     int sum = 0;
-    for (int k = i - 1; k < (i + 2); k++)
+    for (int x = i - 1; x < (i + 2); x++)
     {
         for (int l = j - 1; l < (j + 2); l++)
         {
-            if (k < 0 || l < 0 || k >= height || l >= width)
+            if (x < 0 || l < 0 || x >= height || l >= width)
             {
-
             }
             else
             {
                 if (RGB == 0)
                 {
-                    sum += image[k][l].rgbtRed;
+                    sum += image[x][l].rgbtRed;
                 }
                 else if (RGB == 1)
                 {
-                    sum += image[k][l].rgbtBlue;
+                    sum += image[x][l].rgbtBlue;
                 }
                 else
                 {
-                    sum += image[k][l].rgbtGreen;
+                    sum += image[x][l].rgbtGreen;
                 }
                 counter++;
             }
@@ -111,6 +110,7 @@ int equationforblur(int i, int j, int height, int width, RGBTRIPLE image[height]
     }
     return round(sum / counter);
 }
+
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
@@ -125,9 +125,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j].rgbtRed = equationforblur(i, j, height, width, copy, 0);
-            image[i][j].rgbtBlue = equationforblur(i, j, height, width, copy, 1);
-            image[i][j].rgbtGreen = equationforblur(i, j, height, width, copy, 2);
+            image[i][j].rgbtRed = blurCheck(i, j, height, width, copy, 0);
+            image[i][j].rgbtBlue = blurCheck(i, j, height, width, copy, 1);
+            image[i][j].rgbtGreen = blurCheck(i, j, height, width, copy, 2);
         }
     }
     return;
